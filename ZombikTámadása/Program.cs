@@ -122,6 +122,18 @@
             for (int i = 0; i < zombik.Length; i++)
             {
                 int index = r.Next(0, lakossag.Length);
+                Console.WriteLine($"{zombik[i]} zombi rátámadt {zombikEreje[i]} erővel {lakossag[index]} ,akinek kezdeti életerje {lakossagEletereje[index]}");
+                lakossagEletereje[index] -= zombikEreje[i];
+                if (lakossagEletereje[index] <= 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"{lakossag[index]} lakos meghalt.");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.WriteLine($"{lakossag[index]} lakos éltereje: {lakossagEletereje[index]}");
+                }
 
 
 
@@ -148,7 +160,7 @@
 
             int[] zombikEreje = ZombiErejeKezdeti(lakossagSzama, sebzesMin, sebzesMax);
 
-            Console.WriteLine("-----------------------------------------------------");
+            Console.WriteLine("---------------------------------------------------");
 
             Console.Write("A lakosság: ");
 
@@ -158,7 +170,7 @@
 
             KiirSzamokat(lakossagEletereje);
 
-            Console.WriteLine("-----------------------------------------------------");
+            Console.WriteLine("---------------------------------------------------");
 
             Console.Write("A zombik: ");
 
@@ -168,7 +180,7 @@
 
             KiirSzamokat(zombikEreje);
 
-            Console.WriteLine("-----------------------------------------------------");
+            Console.WriteLine("---------------------------------------------------");
 
             harc(lakossag, zombik, lakossagEletereje, zombikEreje);
 
