@@ -119,7 +119,13 @@
 
         private static void harc(string[] lakossag, string[] zombik, int[] lakossagEletereje, int[] zombikEreje)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < zombik.Length; i++)
+            {
+                int index = r.Next(0, lakossag.Length);
+
+
+
+            }
         }
 
         static void Main(string[] args)
